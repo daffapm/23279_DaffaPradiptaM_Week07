@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/contacts"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{loadedContact.nama}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-list>
+      <ion-input name="id" hidden formControlName="id"></ion-input>
+      <ion-item>
+        <ion-label position="floating">Nama</ion-label>
+        <ion-input type="text" formControlName="nama" value="{{loadedContact.nama}}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nomor Telpon (pisahkan dengan koma)</ion-label>
+        <ion-input type="text" formControlName="phone" value="{{loadedContact.phone}}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Email (pisahkan dengan koma)</ion-label>
+        <ion-input type="text" formControlName="email" value="{{loadedContact.email}}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Image URL</ion-label>
+        <ion-input type="text" formControlName="foto"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button (click)="onSubmit()">Submit</ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/contacts"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Contact Detail</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button [routerLink]="['../../', 'edit', loadedContact.id]">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="presentAlert()">
+        <ion-icon name="trash" slot="icon-only"></ion-icon> 
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-img [src]="loadedContact.foto"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        {{loadedContact.nama}}
+      </ion-label>
+    </ion-item>
+    <ion-card-content>
+      <ion-item *ngFor="let emailList of loadedContact.email">
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-label>
+          {{emailList}}
+        </ion-label>
+      </ion-item>
+      <ion-item *ngFor="let phoneList of loadedContact.phone">
+        <ion-icon name="call-outline" slot="start"></ion-icon>
+        <ion-label>
+          {{phoneList}}
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

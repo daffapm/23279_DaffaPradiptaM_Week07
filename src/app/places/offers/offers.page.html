@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="placesMenu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Offers</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item detail *ngFor="let place of places" >
+      <ion-avatar style="--border-radius: 0px;" slot="start">
+        <ion-img [src]="place.imageUrl"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        {{place.title}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
